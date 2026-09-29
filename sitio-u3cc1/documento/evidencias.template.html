@@ -104,7 +104,8 @@ ul { margin: .1cm 0 .3cm 0; }
 <figure><img src="../evidencias/17-remoto-formulario-enviado-mariana.png"><figcaption>Figura 21. Confirmación tras enviar el mensaje 1 desde el sitio remoto.</figcaption></figure>
 <figure><img src="../evidencias/18-remoto-formulario-lleno-carlos.png"><figcaption>Figura 22. Formulario llenado en el sitio remoto (mensaje 2).</figcaption></figure>
 <figure><img src="../evidencias/19-remoto-formulario-enviado-carlos.png"><figcaption>Figura 23. Confirmación tras enviar el mensaje 2 desde el sitio remoto.</figcaption></figure>
-<div class="marcador"><strong>[INSERTAR CAPTURA DE phpMyAdmin EN EL HOSTING]</strong><br>Panel de InfinityFree → phpMyAdmin → tabla <code>wp_contactos</code>, con los 2 registros enviados arriba. Requiere iniciar sesión en el panel de InfinityFree, algo que solo puede hacer el titular de la cuenta.</div>
+<figure><img src="../evidencias/20-remoto-phpmyadmin-registros-wp_contactos.png"><figcaption>Figura 24. phpMyAdmin de InfinityFree: tabla <code>wp_contactos</code> del hosting con los mensajes recibidos.</figcaption></figure>
+<div class="pie">La tabla remota muestra 4 registros: los ids 1 y 2 son los mensajes de prueba hechos en local, que viajaron dentro de la base de datos al importarla; los ids 3 y 4 (con fecha y hora posteriores) son los que se enviaron desde el formulario del sitio ya publicado, mostrados en las figuras 20 a 23. Esto confirma que el formulario del hosting escribe en la base de datos remota.</div>
 
 <h1 class="pagina">Referencias</h1>
 <p class="ref">Apache Friends. (s. f.). <em>XAMPP Apache + MariaDB + PHP + Perl</em>. https://www.apachefriends.org/es/index.html</p>
