@@ -4,3 +4,4 @@
 
 # Dependencias de Node (se reinstalan con npm install)
 node_modules/
+__pycache__/

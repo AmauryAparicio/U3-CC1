@@ -23,9 +23,16 @@ Eso deja en `migracion/`: `cafe-nahual-db.sql` (BD con URLs ya reemplazadas) y `
    Deben aparecer las 14 tablas (`wp_*` y `wp_contactos`).
 
 ## 4. Archivos
-1. **FTP Details** de tu cuenta: host `ftpupload.net`, usuario `if0_XXXXXXXX`, contraseña de tu cuenta. Usa FileZilla o el *Online File Manager* del panel.
-2. Sube **WordPress completo** (`sitio-u3cc1/wp/`, sin `wp-content/themes/twenty*`) a la carpeta **`htdocs`** del servidor. Alternativa: descarga WordPress es_MX desde <https://es-mx.wordpress.org>, súbelo a `htdocs` y luego descomprime `wp-content.zip` encima de `wp-content`.
-3. Copia `wp-config.remoto.plantilla.php` como **`wp-config.php`** en `htdocs`, y rellena los datos de la BD del paso 3 y unas llaves nuevas (<https://api.wordpress.org/secret-key/1.1/salt/>).
+1. **FTP Details** de tu cuenta: host `ftpupload.net`, usuario `if0_XXXXXXXX`, contraseña de tu cuenta.
+2. Sube **WordPress completo** (`sitio-u3cc1/wp/`, sin `wp-content/themes/twenty*` ni `wp-content/plugins/akismet`) a la carpeta **`htdocs`** del servidor. Dos formas:
+   - **Automático**: `scripts/subir_ftp.py` sube todo por FTP y es resistente a cortes (si se interrumpe, vuelve a correrlo y solo sube lo que falte):
+     ```bash
+     FTP_HOST=ftpupload.net FTP_USER=if0_XXXXXXXX FTP_PASS='tu-contraseña' \
+       python3 scripts/subir_ftp.py
+     ```
+     Son ~3,400 archivos (~95 MB); puede tardar bastante en un hosting gratuito.
+   - **Manual**: FileZilla o el *Online File Manager* del panel. Alternativa sin FTP: descarga WordPress es_MX desde <https://es-mx.wordpress.org>, súbelo a `htdocs` y luego descomprime `wp-content.zip` encima de `wp-content`.
+3. Copia `wp-config.remoto.plantilla.php` como **`wp-config.php`** en `htdocs` (el script anterior no lo sube a propósito), y rellena los datos de la BD del paso 3 y unas llaves nuevas (<https://api.wordpress.org/secret-key/1.1/salt/>).
 4. Borra `htdocs/index2.html` (página de bienvenida del hosting) si existe.
 
 ## 5. Verificar

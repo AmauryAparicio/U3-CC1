@@ -16,6 +16,6 @@ if grep -q "localhost:8080" "$SALIDA/cafe-nahual-db.sql"; then
   echo "ERROR: el .sql aún contiene localhost:8080" >&2; exit 1
 fi
 rm -f "$SALIDA/wp-content.zip"
-zip -qr "$SALIDA/wp-content.zip" wp-content -x "wp-content/cache/*" "wp-content/upgrade/*" "wp-content/themes/twenty*"
+zip -qr "$SALIDA/wp-content.zip" wp-content -x "wp-content/cache/*" "wp-content/upgrade/*" "wp-content/themes/twenty*" "wp-content/plugins/akismet/*"
 echo "Listo: $SALIDA/cafe-nahual-db.sql y $SALIDA/wp-content.zip"
 ls -lh "$SALIDA"
