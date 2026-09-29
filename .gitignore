@@ -1,0 +1,6 @@
+# Nunca subir credenciales
+.env
+.env.*
+
+# Dependencias de Node (se reinstalan con npm install)
+node_modules/

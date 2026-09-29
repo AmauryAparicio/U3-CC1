@@ -2,7 +2,7 @@
 # Crea páginas, menú y ajustes del sitio (idempotente sobre una instalación limpia).
 set -e
 cd "$(dirname "$0")/../wp"
-W="wp --allow-root"
+W="/home/linuxbrew/.linuxbrew/bin/wp --allow-root"
 C=../scripts/contenido
 $W theme activate cafe-nahual
 $W plugin activate nahual-contacto
