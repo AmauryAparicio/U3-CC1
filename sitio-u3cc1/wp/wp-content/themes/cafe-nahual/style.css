@@ -1,0 +1,126 @@
+/*
+Theme Name: Café Nahual
+Theme URI: http://localhost:8080
+Author: Jorge Amaury Aparicio Cuevas
+Description: Tema propio para el sitio de Café Nahual (actividad U3-CC1). Hoja de estilos externa.
+Version: 1.0
+Text Domain: cafe-nahual
+*/
+
+:root {
+  --cafe: #3b2416;
+  --cafe-medio: #6b4429;
+  --crema: #f6efe4;
+  --arena: #e8d9bf;
+  --verde: #4a5d3a;
+  --acento: #c8642b;
+  --texto: #2a1f18;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+a { color: var(--acento); }
+a:hover { color: var(--cafe); }
+img { max-width: 100%; height: auto; }
+
+.sitio-cabecera {
+  background: var(--cafe);
+  color: var(--crema);
+  border-bottom: 4px solid var(--acento);
+}
+.cabecera-interior {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.marca { text-decoration: none; color: var(--crema); }
+.marca strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; letter-spacing: .5px; }
+.marca span { font-size: .85rem; color: var(--arena); }
+.menu-principal ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.menu-principal a { color: var(--crema); text-decoration: none; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.menu-principal a:hover,
+.menu-principal .current-menu-item a { border-bottom-color: var(--acento); color: #fff; }
+
+.contenedor { max-width: 860px; margin: 0 auto; padding: 40px 24px 56px; }
+.contenedor h1, .contenedor h2, .contenedor h3 { font-family: Georgia, "Times New Roman", serif; color: var(--cafe); line-height: 1.25; }
+.contenedor h1 { font-size: 2.3rem; margin-top: 0; }
+.contenedor h2 { font-size: 1.6rem; margin-top: 2em; }
+
+.portada-inicio {
+  background: linear-gradient(135deg, var(--cafe) 0%, var(--cafe-medio) 100%);
+  color: var(--crema);
+  padding: 64px 24px;
+  text-align: center;
+}
+.portada-inicio h1 { color: #fff; font-family: Georgia, serif; font-size: 2.8rem; margin: 0 0 12px; }
+.portada-inicio p { max-width: 640px; margin: 0 auto 24px; color: var(--arena); font-size: 1.15rem; }
+.boton, .wp-block-button__link, .nahual-form button {
+  display: inline-block;
+  background: var(--acento);
+  color: #fff;
+  border: 0;
+  padding: 12px 26px;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.boton:hover, .nahual-form button:hover { background: #a94e1c; color: #fff; }
+
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin: 24px 0; }
+.tarjeta { background: #fff; border: 1px solid var(--arena); border-top: 4px solid var(--verde); border-radius: 4px; padding: 18px 20px; }
+.tarjeta h3 { margin-top: 0; }
+.tarjeta .precio { color: var(--acento); font-weight: 700; }
+
+.nota-autor {
+  margin-top: 40px;
+  padding: 18px 22px;
+  background: var(--arena);
+  border-left: 5px solid var(--cafe-medio);
+  border-radius: 0 4px 4px 0;
+}
+
+.lista-enlaces { list-style: none; padding: 0; }
+.lista-enlaces li { background: #fff; border: 1px solid var(--arena); border-radius: 4px; padding: 14px 18px; margin-bottom: 12px; }
+.lista-enlaces a { font-weight: 600; }
+
+.nahual-form { background: #fff; border: 1px solid var(--arena); border-radius: 6px; padding: 24px; }
+.nahual-form label { display: block; font-weight: 600; margin: 14px 0 4px; color: var(--cafe); }
+.nahual-form input[type="text"],
+.nahual-form input[type="email"],
+.nahual-form input[type="tel"],
+.nahual-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c9b79a;
+  border-radius: 4px;
+  font: inherit;
+  background: #fffdf9;
+}
+.nahual-form input:focus, .nahual-form textarea:focus { outline: 2px solid var(--acento); border-color: var(--acento); }
+.nahual-form .trampa { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.nahual-form button { margin-top: 20px; }
+.aviso { padding: 14px 18px; border-radius: 4px; margin-bottom: 18px; }
+.aviso-ok { background: #e4efd9; border: 1px solid var(--verde); color: #2f4022; }
+.aviso-error { background: #fbe3d8; border: 1px solid var(--acento); color: #7a2e0c; }
+.aviso-error ul { margin: 6px 0 0 20px; padding: 0; }
+
+.sitio-pie { background: var(--cafe); color: var(--arena); text-align: center; padding: 26px 24px; font-size: .92rem; }
+.sitio-pie a { color: var(--crema); }
+
+@media (max-width: 600px) {
+  .portada-inicio h1 { font-size: 2.1rem; }
+  .contenedor h1 { font-size: 1.9rem; }
+}

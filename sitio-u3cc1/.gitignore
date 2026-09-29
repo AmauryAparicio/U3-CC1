@@ -1,0 +1,13 @@
+# phpMyAdmin y núcleo de WordPress se reinstalan con scripts/ o desde wordpress.org
+pma/
+wp/*
+!wp/.htaccess
+!wp/wp-content/
+wp/wp-content/*
+!wp/wp-content/themes/
+wp/wp-content/themes/*
+!wp/wp-content/themes/cafe-nahual/
+!wp/wp-content/plugins/
+wp/wp-content/plugins/*
+!wp/wp-content/plugins/nahual-contacto/
+documento/evidencias.html
