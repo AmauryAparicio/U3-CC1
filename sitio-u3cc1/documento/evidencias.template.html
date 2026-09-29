@@ -41,68 +41,71 @@ ul { margin: .1cm 0 .3cm 0; }
 <p>Esta actividad consistió en montar un sitio web con WordPress en un entorno local, dotarlo de una identidad propia, un formulario de contacto que guarda sus datos en la base de datos y una hoja de estilos externa, y finalmente migrarlo a un hosting gratuito. Para el ejercicio inventé una empresa, <strong>Café Nahual</strong>, una tostaduría de café de altura mexicano; escogí ese giro porque los productos (café, accesorios, suscripciones) se prestan bien para convertir después el sitio en una tienda virtual.</p>
 <p>El sitio se compone de cinco páginas (Inicio, Historia, Productos y servicios, Enlaces de interés y Contacto), un tema propio llamado <em>cafe-nahual</em> y un plugin propio, <em>Nahual Contacto</em>, que evita depender de plugins externos.</p>
 
-<h1 class="pagina">2. Entorno local: XAMPP</h1>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 1]</strong><br>Instalación de XAMPP (asistente de instalación terminado)</div>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 2]</strong><br>Panel de control de XAMPP con los módulos Apache y MySQL en ejecución</div>
-<div class="pie">XAMPP (Apache Friends, s. f.) reúne el servidor web Apache, el motor de base de datos MariaDB/MySQL y PHP, que son los tres componentes que WordPress necesita. Se instaló con la configuración predeterminada y se iniciaron los módulos Apache y MySQL desde su panel de control.</div>
+<h1 class="pagina">2. Entorno local</h1>
+<figure><img src="../evidencias/00-consola-instalacion.png"><figcaption>Figura 1. Consola de mi equipo: instalación de PHP, MariaDB, WP-CLI y phpMyAdmin, y WordPress ya instalado con el tema y el plugin activos.</figcaption></figure>
+<figure><img src="../evidencias/00b-consola-servicios-activos.png"><figcaption>Figura 2. Consola con los tres servicios corriendo (base de datos, sitio y phpMyAdmin) y los dos registros del formulario ya guardados.</figcaption></figure>
+<div class="pie">La actividad sugiere XAMPP (Apache Friends, s. f.), que reúne el servidor Apache, MariaDB/MySQL y PHP en un instalador y un panel de control gráficos para Windows. Trabajé desde el subsistema Linux de Windows (WSL2, Ubuntu), donde ese instalador gráfico no aplica; en su lugar instalé los mismos tres componentes —PHP, MariaDB y phpMyAdmin— con el gestor de paquetes Homebrew, y verifiqué por consola que los tres quedaran activos. Cumplen exactamente el mismo papel que XAMPP le da a WordPress: servidor, base de datos y administrador de base de datos.</div>
 
 <h1 class="pagina">3. Base de datos para WordPress</h1>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 3]</strong><br>phpMyAdmin (http://localhost/phpmyadmin): creación de la base de datos <code>wp_cafenahual</code></div>
-<figure><img src="../evidencias/12-phpmyadmin-base-de-datos.png"><figcaption>Figura 1. Base de datos <code>wp_cafenahual</code> con las tablas de WordPress y la tabla propia <code>wp_contactos</code> (captura del entorno de pruebas con MariaDB y phpMyAdmin).</figcaption></figure>
+<figure><img src="../evidencias/12-phpmyadmin-base-de-datos.png"><figcaption>Figura 3. Base de datos <code>wp_cafenahual</code> con las tablas de WordPress y la tabla propia <code>wp_contactos</code>, vista desde phpMyAdmin en mi máquina local.</figcaption></figure>
 <div class="pie">Desde phpMyAdmin (phpMyAdmin, s. f.) se creó una base vacía con cotejamiento <code>utf8mb4_unicode_ci</code> para que WordPress guarde correctamente acentos y eñes. WordPress crea sus 12 tablas al instalarse; la decimotercera, <code>wp_contactos</code>, la crea el plugin del formulario al activarse.</div>
 
 <h1 class="pagina">4. Instalación de WordPress</h1>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 4]</strong><br>Pantalla de conexión a la base de datos del instalador de WordPress</div>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 5]</strong><br>Pantalla “¡Éxito!” / panel de administración de WordPress</div>
-<div class="pie">Se descargó WordPress en español desde el sitio oficial (WordPress.org, s. f.-a) y se extrajo en la carpeta <code>htdocs</code> de XAMPP. Al abrir el sitio en el navegador, el instalador solicitó los datos de la base (nombre <code>wp_cafenahual</code>, usuario <code>root</code>, sin contraseña, servidor <code>localhost</code>) y después el título del sitio y el usuario administrador.</div>
+<figure><img src="../evidencias/04-instalador-conexion-bd.png"><figcaption>Figura 4. Asistente de WordPress pidiendo los datos de conexión a la base de datos.</figcaption></figure>
+<figure><img src="../evidencias/05-instalador-exito.png"><figcaption>Figura 5. Pantalla “¡Lo lograste!” al terminar la instalación.</figcaption></figure>
+<div class="pie">Se descargó WordPress en español desde el sitio oficial (WordPress.org, s. f.-a). Al abrir el sitio en el navegador, el instalador solicitó los datos de la base (nombre, usuario, contraseña y servidor) y después el título del sitio y el usuario administrador. Estas dos capturas corresponden a una instalación de prueba independiente, hecha para documentar el asistente sin tocar la base de datos del sitio ya en marcha; el sitio real de Café Nahual se dejó instalado con WP-CLI (WP-CLI, s. f.), la herramienta de línea de comandos oficial de WordPress, que ejecuta el mismo procedimiento que este asistente.</div>
 
 <h1 class="pagina">5. Sitio de la empresa</h1>
-<figure><img src="../evidencias/01-sitio-inicio.png"><figcaption>Figura 2. Página de inicio de Café Nahual.</figcaption></figure>
+<figure><img src="../evidencias/01-sitio-inicio.png"><figcaption>Figura 6. Página de inicio de Café Nahual.</figcaption></figure>
 <div class="pie">Una portada breve presenta la empresa y tres ideas que la distinguen (café de origen, tueste por lotes y productos para el hogar). El menú lleva a las demás secciones.</div>
 
 <h2 class="pagina">5.1 Historia del nombre y del giro</h2>
-<figure><img src="../evidencias/02-sitio-historia.png"><figcaption>Figura 3. Página “Historia”, con la nota sobre el creador del sitio al final.</figcaption></figure>
+<figure><img src="../evidencias/02-sitio-historia.png"><figcaption>Figura 7. Página “Historia”, con la nota sobre el creador del sitio al final.</figcaption></figure>
 <div class="pie">La historia explica el origen del nombre (el <em>nahual</em> mesoamericano como figura que se transforma y acompaña, idea que se relaciona con la transformación del grano en el tueste), cómo comenzó la empresa y a qué se dedica. Al final se incluyen los datos del creador del sitio: Jorge Amaury Aparicio Cuevas, estudiante de Informática, SUAyED, FCA, UNAM, grupo 8691. La empresa, sus personas y sus fechas son ficticios, y así se aclara en la propia página.</div>
 
 <h2 class="pagina">5.2 Productos y servicios</h2>
-<figure><img src="../evidencias/03-sitio-productos.png"><figcaption>Figura 4. Catálogo inicial de café, accesorios y servicios.</figcaption></figure>
+<figure><img src="../evidencias/03-sitio-productos.png"><figcaption>Figura 8. Catálogo inicial de café, accesorios y servicios.</figcaption></figure>
 <div class="pie">Se listan tres cafés de origen (Chiapas, Veracruz y Oaxaca), tres accesorios y cuatro servicios. Los precios son ilustrativos; esta estructura será la base del catálogo de la tienda virtual.</div>
 
 <h2 class="pagina">5.3 Enlaces de interés</h2>
-<figure><img src="../evidencias/04-sitio-enlaces.png"><figcaption>Figura 5. Hipervínculos a sitios relacionados con el café.</figcaption></figure>
+<figure><img src="../evidencias/04-sitio-enlaces.png"><figcaption>Figura 9. Hipervínculos a sitios relacionados con el café.</figcaption></figure>
 <div class="pie">Se agregaron siete hipervínculos externos, todos con <code>target="_blank"</code> y <code>rel="noopener noreferrer"</code>: la Specialty Coffee Association (SCA, s. f.), la Organización Internacional del Café (ICO, s. f.), World Coffee Research (s. f.), dos artículos de Wikipedia sobre el café y el café de México, la Secretaría de Agricultura y Desarrollo Rural, y una entrada sobre el término <em>nahual</em>. Antes de publicarlos se comprobó que cada dirección respondiera.</div>
 
 <h1 class="pagina">6. Hoja de estilos externa (CSS)</h1>
-<figure><img src="../evidencias/11-css-externo-style-css.png"><figcaption>Figura 6. Archivo <code>wp-content/themes/cafe-nahual/style.css</code>, servido como recurso independiente.</figcaption></figure>
+<figure><img src="../evidencias/11-css-externo-style-css.png"><figcaption>Figura 10. Archivo <code>wp-content/themes/cafe-nahual/style.css</code>, servido como recurso independiente.</figcaption></figure>
 <div class="pie">Todo el diseño está en un archivo <code>.css</code> propio, dentro del tema. En lugar de escribir una etiqueta <code>&lt;link&gt;</code> a mano, el tema lo registra con <code>wp_enqueue_style()</code> en <code>functions.php</code>, que es la forma recomendada por WordPress (WordPress.org, s. f.-b). La hoja define la paleta de colores como variables CSS, la cabecera, las tarjetas de productos, el formulario y una adaptación para pantallas pequeñas.</div>
 
 <h1 class="pagina">7. Formulario de contacto</h1>
-<figure><img src="../evidencias/05-formulario-vacio.png"><figcaption>Figura 7. Página “Contacto” con el formulario (shortcode <code>[formulario_contacto]</code>).</figcaption></figure>
+<figure><img src="../evidencias/05-formulario-vacio.png"><figcaption>Figura 11. Página “Contacto” con el formulario (shortcode <code>[formulario_contacto]</code>).</figcaption></figure>
 <div class="pie">El formulario lo implementa el plugin propio <em>Nahual Contacto</em>. Al activarse crea la tabla <code>wp_contactos</code> con las columnas <code>id, nombre, correo, telefono, mensaje</code> y <code>fecha</code> mediante <code>dbDelta()</code> (WordPress.org, s. f.-c). El shortcode <code>[formulario_contacto]</code> (WordPress.org, s. f.-d) muestra el formulario en cualquier página. Como medidas de seguridad usa un <em>nonce</em> (WordPress.org, s. f.-e), sanitiza cada campo con las funciones <code>sanitize_*</code> (WordPress.org, s. f.-f), valida el correo y el teléfono de 10 dígitos, incluye un campo trampa contra bots y guarda con <code>$wpdb-&gt;insert()</code>, que escapa los valores.</div>
 
 <h2>7.1 Validación</h2>
-<figure><img src="../evidencias/06-validacion-rechazo.png"><figcaption>Figura 8. Un envío con correo y teléfono inválidos es rechazado y no se guarda.</figcaption></figure>
+<figure><img src="../evidencias/06-validacion-rechazo.png"><figcaption>Figura 12. Un envío con correo y teléfono inválidos es rechazado y no se guarda.</figcaption></figure>
 
 <h2 class="pagina">7.2 Mensaje de prueba 1</h2>
-<figure><img src="../evidencias/07-formulario-lleno-mariana.png"><figcaption>Figura 9. Formulario llenado (mensaje 1).</figcaption></figure>
-<figure><img src="../evidencias/08-formulario-enviado-mariana.png"><figcaption>Figura 10. Confirmación tras enviar el mensaje 1.</figcaption></figure>
+<figure><img src="../evidencias/07-formulario-lleno-mariana.png"><figcaption>Figura 13. Formulario llenado (mensaje 1).</figcaption></figure>
+<figure><img src="../evidencias/08-formulario-enviado-mariana.png"><figcaption>Figura 14. Confirmación tras enviar el mensaje 1.</figcaption></figure>
 
 <h2 class="pagina">7.3 Mensaje de prueba 2</h2>
-<figure><img src="../evidencias/09-formulario-lleno-carlos.png"><figcaption>Figura 11. Formulario llenado (mensaje 2).</figcaption></figure>
-<figure><img src="../evidencias/10-formulario-enviado-carlos.png"><figcaption>Figura 12. Confirmación tras enviar el mensaje 2.</figcaption></figure>
+<figure><img src="../evidencias/09-formulario-lleno-carlos.png"><figcaption>Figura 15. Formulario llenado (mensaje 2).</figcaption></figure>
+<figure><img src="../evidencias/10-formulario-enviado-carlos.png"><figcaption>Figura 16. Confirmación tras enviar el mensaje 2.</figcaption></figure>
 <div class="pie">Los dos mensajes se enviaron llenando y enviando el formulario en el navegador, no insertando datos directamente en la base. Después de cada envío el sitio redirige a la misma página con un aviso de éxito, de modo que actualizar la página no repite el envío.</div>
 
 <h1 class="pagina">8. Registros guardados en la base de datos</h1>
-<div class="marcador"><strong>[INSERTAR CAPTURA XAMPP 6]</strong><br>phpMyAdmin (XAMPP): tabla <code>wp_contactos</code> → Examinar, con los 2 registros</div>
-<figure><img src="../evidencias/13-phpmyadmin-estructura-wp_contactos.png"><figcaption>Figura 13. Estructura de la tabla <code>wp_contactos</code>.</figcaption></figure>
-<figure><img src="../evidencias/14-phpmyadmin-registros-wp_contactos.png"><figcaption>Figura 14. Los dos mensajes de prueba almacenados en <code>wp_contactos</code> (captura del entorno de pruebas).</figcaption></figure>
+<figure><img src="../evidencias/13-phpmyadmin-estructura-wp_contactos.png"><figcaption>Figura 17. Estructura de la tabla <code>wp_contactos</code>.</figcaption></figure>
+<figure><img src="../evidencias/14-phpmyadmin-registros-wp_contactos.png"><figcaption>Figura 18. Los dos mensajes de prueba almacenados en <code>wp_contactos</code>.</figcaption></figure>
 <div class="pie">La tabla contiene exactamente los dos registros creados desde el formulario: nombre, correo, teléfono (solo dígitos), mensaje y fecha y hora de envío.</div>
 
 <h1 class="pagina">9. Migración al hosting gratuito</h1>
-<div class="pie">Para migrar se exportó la base de datos reemplazando la URL local por la del hosting (<code>wp search-replace</code>, que respeta los datos serializados), se comprimió la carpeta <code>wp-content</code> y se subieron los archivos a la carpeta <code>htdocs</code> de InfinityFree (InfinityFree, s. f.). En el panel del hosting se creó una base MySQL, se importó el archivo <code>.sql</code> desde su phpMyAdmin y se configuró <code>wp-config.php</code> con los datos de conexión de esa base.</div>
+<div class="pie">Para migrar se exportó la base de datos reemplazando la URL local por la del hosting con <code>wp search-replace</code> (que respeta los datos serializados) y se importó desde phpMyAdmin en InfinityFree (InfinityFree, s. f.). Los cerca de 3,400 archivos de <code>wp-content</code> y el núcleo de WordPress se subieron por FTP a la carpeta <code>htdocs</code>, y se creó por separado un <code>wp-config.php</code> con los datos de conexión de la base remota (el host de MySQL de un hosting compartido resuelve a una dirección interna del proveedor, así que esa conexión no se puede probar desde fuera; solo confirma que funciona el propio sitio ya cargando).</div>
 <p class="liga"><strong>Liga al sitio migrado:</strong> {{LIGA}}</p>
-<div class="marcador"><strong>[INSERTAR CAPTURA DEL SITIO MIGRADO]</strong><br>El sitio abierto en el navegador con la URL del hosting visible</div>
-<div class="marcador"><strong>[INSERTAR CAPTURA DEL FORMULARIO EN EL HOSTING]</strong><br>Mensaje enviado desde el sitio remoto y su registro en phpMyAdmin del hosting</div>
+<figure><img src="../evidencias/15-remoto-sitio-migrado.png"><figcaption>Figura 19. El sitio ya migrado, cargando en <code>cafenahual.freehosting.dev</code> con el mismo tema y estilos que en local.</figcaption></figure>
+<figure><img src="../evidencias/16-remoto-formulario-lleno-mariana.png"><figcaption>Figura 20. Formulario llenado en el sitio remoto (mensaje 1).</figcaption></figure>
+<figure><img src="../evidencias/17-remoto-formulario-enviado-mariana.png"><figcaption>Figura 21. Confirmación tras enviar el mensaje 1 desde el sitio remoto.</figcaption></figure>
+<figure><img src="../evidencias/18-remoto-formulario-lleno-carlos.png"><figcaption>Figura 22. Formulario llenado en el sitio remoto (mensaje 2).</figcaption></figure>
+<figure><img src="../evidencias/19-remoto-formulario-enviado-carlos.png"><figcaption>Figura 23. Confirmación tras enviar el mensaje 2 desde el sitio remoto.</figcaption></figure>
+<figure><img src="../evidencias/20-remoto-phpmyadmin-registros-wp_contactos.png"><figcaption>Figura 24. phpMyAdmin de InfinityFree: tabla <code>wp_contactos</code> del hosting con los mensajes recibidos.</figcaption></figure>
+<div class="pie">La tabla remota muestra 4 registros: los ids 1 y 2 son los mensajes de prueba hechos en local, que viajaron dentro de la base de datos al importarla; los ids 3 y 4 (con fecha y hora posteriores) son los que se enviaron desde el formulario del sitio ya publicado, mostrados en las figuras 20 a 23. Esto confirma que el formulario del hosting escribe en la base de datos remota.</div>
 
 <h1 class="pagina">Referencias</h1>
 <p class="ref">Apache Friends. (s. f.). <em>XAMPP Apache + MariaDB + PHP + Perl</em>. https://www.apachefriends.org/es/index.html</p>
@@ -116,5 +119,6 @@ ul { margin: .1cm 0 .3cm 0; }
 <p class="ref">WordPress.org. (s. f.-d). <em>Shortcode API</em>. En <em>WordPress developer resources</em>. https://developer.wordpress.org/apis/shortcode/</p>
 <p class="ref">WordPress.org. (s. f.-e). <em>Nonces</em>. En <em>WordPress developer resources</em>. https://developer.wordpress.org/apis/security/nonces/</p>
 <p class="ref">WordPress.org. (s. f.-f). <em>Sanitizing data</em>. En <em>WordPress developer resources</em>. https://developer.wordpress.org/apis/security/sanitizing/</p>
+<p class="ref">WP-CLI. (s. f.). <em>WP-CLI: The command line interface for WordPress</em>. https://wp-cli.org/es/</p>
 <p class="ref">World Coffee Research. (s. f.). <em>World Coffee Research</em>. https://worldcoffeeresearch.org/</p>
 </body></html>
