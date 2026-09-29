@@ -97,10 +97,14 @@ ul { margin: .1cm 0 .3cm 0; }
 <div class="pie">La tabla contiene exactamente los dos registros creados desde el formulario: nombre, correo, teléfono (solo dígitos), mensaje y fecha y hora de envío.</div>
 
 <h1 class="pagina">9. Migración al hosting gratuito</h1>
-<div class="pie">Para migrar se exportó la base de datos reemplazando la URL local por la del hosting (<code>wp search-replace</code>, que respeta los datos serializados), se comprimió la carpeta <code>wp-content</code> y se subieron los archivos a la carpeta <code>htdocs</code> de InfinityFree (InfinityFree, s. f.). En el panel del hosting se creó una base MySQL, se importó el archivo <code>.sql</code> desde su phpMyAdmin y se configuró <code>wp-config.php</code> con los datos de conexión de esa base.</div>
+<div class="pie">Para migrar se exportó la base de datos reemplazando la URL local por la del hosting con <code>wp search-replace</code> (que respeta los datos serializados) y se importó desde phpMyAdmin en InfinityFree (InfinityFree, s. f.). Los cerca de 3,400 archivos de <code>wp-content</code> y el núcleo de WordPress se subieron por FTP a la carpeta <code>htdocs</code>, y se creó por separado un <code>wp-config.php</code> con los datos de conexión de la base remota (el host de MySQL de un hosting compartido resuelve a una dirección interna del proveedor, así que esa conexión no se puede probar desde fuera; solo confirma que funciona el propio sitio ya cargando).</div>
 <p class="liga"><strong>Liga al sitio migrado:</strong> {{LIGA}}</p>
-<div class="marcador"><strong>[INSERTAR CAPTURA DEL SITIO MIGRADO]</strong><br>El sitio abierto en el navegador con la URL del hosting visible</div>
-<div class="marcador"><strong>[INSERTAR CAPTURA DEL FORMULARIO EN EL HOSTING]</strong><br>Mensaje enviado desde el sitio remoto y su registro en phpMyAdmin del hosting</div>
+<figure><img src="../evidencias/15-remoto-sitio-migrado.png"><figcaption>Figura 19. El sitio ya migrado, cargando en <code>cafenahual.freehosting.dev</code> con el mismo tema y estilos que en local.</figcaption></figure>
+<figure><img src="../evidencias/16-remoto-formulario-lleno-mariana.png"><figcaption>Figura 20. Formulario llenado en el sitio remoto (mensaje 1).</figcaption></figure>
+<figure><img src="../evidencias/17-remoto-formulario-enviado-mariana.png"><figcaption>Figura 21. Confirmación tras enviar el mensaje 1 desde el sitio remoto.</figcaption></figure>
+<figure><img src="../evidencias/18-remoto-formulario-lleno-carlos.png"><figcaption>Figura 22. Formulario llenado en el sitio remoto (mensaje 2).</figcaption></figure>
+<figure><img src="../evidencias/19-remoto-formulario-enviado-carlos.png"><figcaption>Figura 23. Confirmación tras enviar el mensaje 2 desde el sitio remoto.</figcaption></figure>
+<div class="marcador"><strong>[INSERTAR CAPTURA DE phpMyAdmin EN EL HOSTING]</strong><br>Panel de InfinityFree → phpMyAdmin → tabla <code>wp_contactos</code>, con los 2 registros enviados arriba. Requiere iniciar sesión en el panel de InfinityFree, algo que solo puede hacer el titular de la cuenta.</div>
 
 <h1 class="pagina">Referencias</h1>
 <p class="ref">Apache Friends. (s. f.). <em>XAMPP Apache + MariaDB + PHP + Perl</em>. https://www.apachefriends.org/es/index.html</p>
