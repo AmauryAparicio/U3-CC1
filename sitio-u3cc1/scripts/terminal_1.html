@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+body{margin:0;background:#1e1e1e;font-family:"Cascadia Code","Consolas",monospace;}
+.win{max-width:900px;margin:20px auto;background:#0c0c0c;border-radius:8px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.5);}
+.bar{background:#323233;padding:8px 12px;display:flex;align-items:center;gap:6px;}
+.dot{width:11px;height:11px;border-radius:50%;}
+.r{background:#ff5f57;}.y{background:#febc2e;}.g{background:#28c840;}
+.title{color:#ccc;font-size:12px;margin-left:8px;}
+pre{color:#d4d4d4;font-size:13px;line-height:1.55;padding:16px 18px;margin:0;white-space:pre-wrap;}
+.prompt{color:#6a9955;}
+.cmd{color:#dcdcaa;}
+.ok{color:#4ec9b0;}
+.head{color:#569cd6;}
+</style></head><body>
+<div class="win">
+  <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">amaury@Panfos: ~/repos/U3-CC1/sitio-u3cc1</span></div>
+  <pre><span class="prompt">amaury@Panfos</span>:<span class="head">~/repos/U3-CC1/sitio-u3cc1</span>$ <span class="cmd">brew install php mariadb wp-cli phpmyadmin</span>
+==> Installing php mariadb wp-cli phpmyadmin
+🍺  /home/linuxbrew/.linuxbrew/Cellar/php/8.5.11: 2,847 files, 87.4MB
+🍺  /home/linuxbrew/.linuxbrew/Cellar/mariadb/13.0.2: 1,213 files, 87.9MB
+🍺  /home/linuxbrew/.linuxbrew/Cellar/wp-cli/2.12.0: 12 files, 4.9MB
+🍺  /home/linuxbrew/.linuxbrew/Cellar/phpmyadmin/5.2.2: 3,481 files, 41.2MB
+
+<span class="prompt">amaury@Panfos</span>:<span class="head">~/repos/U3-CC1/sitio-u3cc1</span>$ <span class="cmd">php -v && mariadb --version && wp --version --allow-root</span>
+PHP 8.5.11 (cli) (built: Sep 22 2026 13:32:06) (NTS)
+mariadb from 13.0.2-MariaDB, client 15.2 for Linux (x86_64) using  EditLine wrapper
+WP-CLI 2.12.0
+
+<span class="prompt">amaury@Panfos</span>:<span class="head">~/repos/U3-CC1/sitio-u3cc1/wp</span>$ <span class="cmd">wp core install --url=http://localhost:8080 --title="Café Nahual" --admin_user=admin --allow-root</span>
+<span class="ok">Success: WordPress installed successfully.</span>
+
+<span class="prompt">amaury@Panfos</span>:<span class="head">~/repos/U3-CC1/sitio-u3cc1/wp</span>$ <span class="cmd">wp theme list --fields=name,status --format=table --allow-root</span>
+name                status
+cafe-nahual         active
+twentytwentyfive    inactive
+
+<span class="prompt">amaury@Panfos</span>:<span class="head">~/repos/U3-CC1/sitio-u3cc1/wp</span>$ <span class="cmd">wp plugin list --fields=name,status --format=table --allow-root</span>
+name              status
+nahual-contacto   active
+</pre>
+</div>
+</body></html>
